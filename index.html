@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BikeBuddy - Ride Smart. Price Right.</title>
+  <meta name="description" content="Predict your bike's resale value accurately or find the perfect pre-owned bike within your budget with BikeBuddy AI.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" id="logoLink" onclick="navigateTo('home'); return false;">
+        <div class="logo-icon-wrapper">
+          <svg class="bike-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="5.5" cy="17.5" r="3.5"/>
+            <circle cx="18.5" cy="17.5" r="3.5"/>
+            <path d="M15 6h2.5l1.5 4M12 17.5V14l-3-4H4"/>
+            <path d="M9 10L6.5 4H4"/>
+            <path d="M12 14l3.5-7.5H18"/>
+          </svg>
+        </div>
+        <div class="brand-text-container">
+          <span class="brand-name"><span class="brand-bike">Bike</span><span class="brand-buddy">Buddy</span></span>
+          <span class="brand-tagline">Ride Smart. Price Right.</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home" class="nav-item active" id="nav-home" onclick="navigateTo('home'); return false;">Home</a>
+        <a href="#prediction" class="nav-item" id="nav-prediction" onclick="navigateTo('prediction'); return false;">Price Prediction</a>
+        <a href="#find-bikes" class="nav-item" id="nav-find-bikes" onclick="navigateTo('find-bikes'); return false;">Find Price</a>
+        <a href="#about" class="nav-item" id="nav-about" onclick="openModal('aboutModal'); return false;">About Us</a>
+        <a href="#contact" class="nav-item" id="nav-contact" onclick="openModal('contactModal'); return false;">Contact</a>
+      </nav>
+
+      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="brand-name"><span class="brand-bike">Bike</span><span class="brand-buddy">Buddy</span></span>
+      <button class="close-btn" onclick="toggleMobileMenu()">&times;</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#home" onclick="navigateTo('home'); toggleMobileMenu(); return false;">Home</a>
+      <a href="#prediction" onclick="navigateTo('prediction'); toggleMobileMenu(); return false;">Price Prediction</a>
+      <a href="#find-bikes" onclick="navigateTo('find-bikes'); toggleMobileMenu(); return false;">Find Bikes</a>
+      <a href="#about" onclick="openModal('aboutModal'); toggleMobileMenu(); return false;">About Us</a>
+      <a href="#contact" onclick="openModal('contactModal'); toggleMobileMenu(); return false;">Contact</a>
+    </nav>
+  </div>
+
+  <!-- MAIN APP VIEWS CONTAINER -->
+  <main class="main-content">
+
+    <!-- VIEW 1: HOME PAGE -->
+    <section id="view-home" class="page-view active">
+      <div class="container hero-container">
+        <div class="hero-text-col">
+          <h1 class="hero-heading">
+            Your Smart Bike <br>
+            <span class="highlight-blue">Decision Starts Here</span>
+          </h1>
+          <p class="hero-description">
+            Predict your bike's resale value or find the perfect bike within your budget – all in one place.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg" onclick="navigateTo('prediction')">
+              Predict Bike Price
+            </button>
+            <button class="btn btn-outline btn-lg" onclick="navigateTo('find-bikes')">
+              Find Right Bike
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-image-col">
+          <div class="circle-badge-bg">
+            <img src="Hunter.png" alt="Royal Enfield Hunter 350" class="hero-bike-img" id="heroBikeImg">
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose BikeBuddy Section -->
+      <section class="why-choose-section">
+        <div class="container">
+          <h2 class="section-title">Why choose <span class="highlight-blue">BikeBuddy ?</span></h2>
+          
+          <div class="features-grid">
+            <!-- Card 1 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="10" rx="2"/>
+                  <circle cx="12" cy="5" r="2"/>
+                  <path d="M12 7v4"/>
+                  <circle cx="8" cy="15" r="1" fill="currentColor"/>
+                  <circle cx="16" cy="15" r="1" fill="currentColor"/>
+                  <path d="M9 18h6"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Smart Prediction</h3>
+              <p class="feature-desc">Powered by AI to estimate bike prices accurately.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                  <line x1="7" y1="7" x2="7.01" y2="7"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Fair Market price</h3>
+              <p class="feature-desc">Get the fair market value based on real market trends.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Smart Bike Search</h3>
+              <p class="feature-desc">Filter and find the perfect bike in just a few clicks.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Trusted & Reliable</h3>
+              <p class="feature-desc">We provide reliable data to help you make the right decision.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 2: PRICE PREDICTION PAGE -->
+    <section id="view-prediction" class="page-view">
+      <div class="container subpage-header-bar">
+      </div>
+
+      <div class="container subpage-hero">
+        <div class="subpage-text">
+          <h1 class="subpage-title">Predict Your Bike Price</h1>
+          <p class="subpage-subtitle">Enter your bike details below to get an estimated resale price based on current market trends.</p>
+        </div>
+        <div class="subpage-graphic">
+          <img src="speed.png" alt="Motorcycle Resale Estimation" class="subpage-bike-img">
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="prediction-card">
+          <!-- Left Column: Form -->
+          <div class="prediction-form-col">
+            <h2 class="card-section-title">Bike Details</h2>
+            <p class="card-section-sub">Fill the details of your bike</p>
+
+            <form id="predictionForm" onsubmit="calculatePricePrediction(event)">
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label for="brandSelect">Brand</label>
+                  <div class="select-wrapper">
+                    <select id="brandSelect" onchange="handleBrandChange()" required>
+                      <option value="Honda" selected>Honda</option>
+                      <option value="Royal Enfield">Royal Enfield</option>
+                      <option value="Yamaha">Yamaha</option>
+                      <option value="TVS">TVS</option>
+                      <option value="Hero">Hero</option>
+                      <option value="Bajaj">Bajaj</option>
+                      <option value="KTM">KTM</option>
+                      <option value="Suzuki">Suzuki</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="modelSelect">Model</label>
+                  <div class="select-wrapper">
+                    <select id="modelSelect" required>
+                      <!-- Populated dynamically by JS -->
+                      <option value="CB Shine" selected>CB Shine</option>
+                      <option value="Activa 6G">Activa 6G</option>
+                      <option value="Hornet 2.0">Hornet 2.0</option>
+                      <option value="Unicorn">Unicorn</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="yearSelect">Year</label>
+                  <div class="select-wrapper">
+                    <select id="yearSelect" required>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020" selected>2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="kmSelect">Kilometer driven</label>
+                  <div class="select-wrapper">
+                    <select id="kmSelect" required>
+                      <option value="5000">Under 5,000 km</option>
+                      <option value="15000" selected>15,000 km</option>
+                      <option value="30000">30,000 km</option>
+                      <option value="50000">50,000 km</option>
+                      <option value="75000">75,000+ km</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ownerSelect">Owner</label>
+                  <div class="select-wrapper">
+                    <select id="ownerSelect" required>
+                      <option value="First">First</option>
+                      <option value="Second" selected>Second</option>
+                      <option value="Third">Third</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="fuelSelect">Fuel Type</label>
+                  <div class="select-wrapper">
+                    <select id="fuelSelect" required>
+                      <option value="Petrol" selected>Petrol</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-action-row">
+                <button type="submit" class="btn btn-primary btn-predict">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow-icon"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  Predict Price
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Result Green Box -->
+          <div class="prediction-result-col">
+            <div class="result-green-box">
+              <div class="result-header">
+                <div class="rupee-circle-icon">₹</div>
+                <div>
+                  <h3 class="result-box-title">Estimated Resale price</h3>
+                  <span class="result-box-sub">Based on your bike details</span>
+                </div>
+              </div>
+
+              <div class="main-price-display" id="resalePriceDisplay">
+                ₹ 78,500
+              </div>
+              <p class="price-disclaimer">This is an estimated price based on current market trends.</p>
+
+              <hr class="result-divider">
+
+              <div class="breakdown-list">
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Market Average</span>
+                  <span class="breakdown-value" id="valMarketAvg">₹ 81,000</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Condition Impact</span>
+                  <span class="breakdown-value text-red" id="valConditionImpact">- ₹ 2,500</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-label">Demand Factor</span>
+                  <span class="breakdown-value text-green" id="valDemandFactor">+ ₹ 0</span>
+                </div>
+              </div>
+
+              <hr class="result-divider">
+
+              <div class="final-price-row">
+                <span class="final-price-label">Final estimated Price</span>
+                <span class="final-price-value" id="valFinalPrice">₹ 78,500</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: FIND BIKES PAGE -->
+    <section id="view-find-bikes" class="page-view">
+      <div class="container subpage-header-bar">
+      </div>
+
+      <div class="container subpage-hero">
+        <div class="subpage-text">
+          <h1 class="subpage-title">Find the <span class="highlight-blue">Right Bike</span></h1>
+          <p class="subpage-subtitle">Tell us what you need and we'll show you the perfect match.</p>
+        </div>
+        <div class="subpage-graphic">
+          <img src="himalayan.avif" alt="Find Bike Catalog" class="subpage-bike-img">
+        </div>
+      </div>
+
+      <!-- Filter Bar Container -->
+      <div class="container">
+        <div class="filter-card">
+          <div class="filter-grid">
+            
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                Budget (₹)
+              </label>
+              <div class="select-wrapper">
+                <select id="filterBudget">
+                  <option value="all">All Budgets</option>
+                  <option value="30-60">₹ 30k - ₹ 60k</option>
+                  <option value="50-100" selected>₹ 50k - ₹ 1 Lakh</option>
+                  <option value="100-150">₹ 1 Lakh - ₹ 1.5 Lakh</option>
+                  <option value="150+">₹ 1.5 Lakh+</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                Brand
+              </label>
+              <div class="select-wrapper">
+                <select id="filterBrand">
+                  <option value="all" selected>All Brands</option>
+                  <option value="Yamaha">Yamaha</option>
+                  <option value="TVS">TVS</option>
+                  <option value="Honda">Honda</option>
+                  <option value="Royal Enfield">Royal Enfield</option>
+                  <option value="Hero">Hero</option>
+                  <option value="Bajaj">Bajaj</option>
+                  <option value="KTM">KTM</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Mileage (km/l)
+              </label>
+              <div class="select-wrapper">
+                <select id="filterMileage">
+                  <option value="any" selected>Any</option>
+                  <option value="35">35+ km/l</option>
+                  <option value="45">45+ km/l</option>
+                  <option value="55">55+ km/l</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Engine (CC)
+              </label>
+              <div class="select-wrapper">
+                <select id="filterEngine">
+                  <option value="any">Any Engine</option>
+                  <option value="100-200" selected>100 - 200 CC</option>
+                  <option value="200-400">200 - 400 CC</option>
+                  <option value="400+">400+ CC</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 11l4.5-4.5"/></svg>
+                Fuel Type
+              </label>
+              <div class="select-wrapper">
+                <select id="filterFuel">
+                  <option value="all">All Fuel Types</option>
+                  <option value="Petrol" selected>Petrol</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2.5l1.5 4M12 17.5V14l-3-4H4"/></svg>
+                Bike Type
+              </label>
+              <div class="select-wrapper">
+                <select id="filterType">
+                  <option value="all" selected>Any Type</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Commuter">Commuter</option>
+                  <option value="Cruiser">Cruiser</option>
+                  <option value="Scooter">Scooter</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="filter-actions-bar">
+            <button class="more-filters-btn" onclick="toggleExtraFilters()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              More Filters
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+
+            <div class="filter-buttons-right">
+              <button class="reset-btn" onclick="resetFilters()">
+                Reset
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </button>
+
+              <button class="btn btn-primary btn-find-bikes" onclick="applyFilters()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Find Bikes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended For You Section -->
+      <section class="recommended-section container">
+        <div class="section-header-row">
+          <h2 class="rec-title">Recommended For You</h2>
+          <a href="#" class="view-all-link" onclick="resetFilters(); return false;">View All &rarr;</a>
+        </div>
+
+        <div class="bike-cards-grid" id="bikeGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Carousel Pagination Dots -->
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- Bottom Micro Feature Strip -->
+      <section class="micro-features-strip container">
+        <div class="micro-feature-card">
+          <div class="micro-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <h4 class="micro-title">Accurate Matches</h4>
+            <p class="micro-desc">Smart algorithm finds the best bikes for you.</p>
+          </div>
+        </div>
+
+        <div class="micro-feature-card">
+          <div class="micro-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div>
+            <h4 class="micro-title">Real Market Insights</h4>
+            <p class="micro-desc">Live data & trends for better decisions.</p>
+          </div>
+        </div>
+
+        <div class="micro-feature-card">
+          <div class="micro-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h4 class="micro-title">Trusted & Verified</h4>
+            <p class="micro-desc">Quality checked bikes from trusted sellers.</p>
+          </div>
+        </div>
+
+        <div class="micro-feature-card">
+          <div class="micro-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4 class="micro-title">Save Time & Effort</h4>
+            <p class="micro-desc">Find the right bike in just a few clicks.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content-minimal">
+      <div class="footer-brand-block">
+        <a href="#" class="brand-logo footer-logo" onclick="navigateTo('home'); return false;">
+          <div class="logo-icon-wrapper">
+            <svg class="bike-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2.5l1.5 4M12 17.5V14l-3-4H4"/>
+            </svg>
+          </div>
+          <span class="brand-name"><span class="brand-bike">Bike</span><span class="brand-buddy">Buddy</span></span>
+        </a>
+        <p class="footer-desc">Your smart companion for accurate resale price estimations and discovering new bikes.</p>
+      </div>
+
+      <div class="footer-contact-block">
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="footer-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>karthikeyanashari5@gmail.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="footer-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>9188603875</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="footer-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Thiruvananthapuram,Kerala,India</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 BikeBuddy Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+
+  <!-- 1. Bike Details Modal -->
+  <div class="modal-overlay" id="bikeDetailModal">
+    <div class="modal-card modal-lg">
+      <button class="modal-close" onclick="closeModal('bikeDetailModal')">&times;</button>
+      <div class="bike-detail-container" id="bikeDetailContent">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Auth Modal (Login / Signup) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')">Sign Up</button>
+      </div>
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div class="form-group margin-top-4">
+          <label>Email Address</label>
+          <input type="email" placeholder="name@example.com" required class="input-field">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" required class="input-field">
+        </div>
+        <div class="form-group" id="signupConfirmPassGroup" style="display:none;">
+          <label>Full Name</label>
+          <input type="text" placeholder="John Doe" class="input-field" id="signupName">
+        </div>
+        <button type="submit" class="btn btn-primary w-full btn-lg margin-top-4" id="authSubmitBtn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. About Us Modal -->
+  <div class="modal-overlay" id="aboutModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('aboutModal')">&times;</button>
+      <h2 class="modal-title">About BikeBuddy</h2>
+      <p class="modal-body-text">
+        BikeBuddy is an AI-powered platform designed to bring transparency and confidence to the two-wheeler marketplace.
+        Whether you are evaluating your motorcycle's current resale value or looking for a certified pre-owned ride within your budget,
+        BikeBuddy delivers real-time market data analysis, fair valuation curves, and verified seller listings.
+      </p>
+      <div class="about-highlights">
+        <div class="about-item">
+          <strong>🧠 ML Price Estimation</strong>
+          <p>Trained on thousands of real-market transaction data points across major Indian cities.</p>
+        </div>
+        <div class="about-item">
+          <strong>🛡️ Trusted Quality</strong>
+          <p>Verified seller profiles, multi-point vehicle inspection reports, and market demand insights.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('contactModal')">&times;</button>
+      <h2 class="modal-title">Get in Touch</h2>
+      <p class="modal-body-text">Have a question or need assistance? Fill out the form below and our team will get back to you shortly.</p>
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" class="input-field" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label>Your Email</label>
+          <input type="email" class="input-field" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="input-field" rows="4" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
