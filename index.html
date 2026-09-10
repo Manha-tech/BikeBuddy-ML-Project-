@@ -34,7 +34,7 @@
       <nav class="nav-links">
         <a href="#home" class="nav-item active" id="nav-home" onclick="navigateTo('home'); return false;">Home</a>
         <a href="#prediction" class="nav-item" id="nav-prediction" onclick="navigateTo('prediction'); return false;">Price Prediction</a>
-        <a href="#find-bikes" class="nav-item" id="nav-find-bikes" onclick="navigateTo('find-bikes'); return false;">Find Price</a>
+        <a href="#find-bikes" class="nav-item" id="nav-find-bikes" onclick="navigateTo('find-bikes'); return false;">Find Bikes</a>
         <a href="#about" class="nav-item" id="nav-about" onclick="openModal('aboutModal'); return false;">About Us</a>
         <a href="#contact" class="nav-item" id="nav-contact" onclick="openModal('contactModal'); return false;">Contact</a>
       </nav>
@@ -328,7 +328,6 @@
       <div class="container subpage-hero">
         <div class="subpage-text">
           <h1 class="subpage-title">Find the <span class="highlight-blue">Right Bike</span></h1>
-          <p class="subpage-subtitle">Tell us what you need and we'll show you the perfect match.</p>
         </div>
         <div class="subpage-graphic">
           <img src="himalayan.avif" alt="Find Bike Catalog" class="subpage-bike-img">
@@ -338,7 +337,8 @@
       <!-- Filter Bar Container -->
       <div class="container">
         <div class="filter-card">
-          <div class="filter-grid">
+          <!-- Front Filters (Budget & Brand) -->
+          <div class="filter-grid front-filters-grid">
             
             <div class="filter-group">
               <label class="filter-label">
@@ -377,76 +377,83 @@
               </div>
             </div>
 
-            <div class="filter-group">
-              <label class="filter-label">
-                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Mileage (km/l)
-              </label>
-              <div class="select-wrapper">
-                <select id="filterMileage">
-                  <option value="any" selected>Any</option>
-                  <option value="35">35+ km/l</option>
-                  <option value="45">45+ km/l</option>
-                  <option value="55">55+ km/l</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
-            </div>
+          </div>
 
-            <div class="filter-group">
-              <label class="filter-label">
-                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                Engine (CC)
-              </label>
-              <div class="select-wrapper">
-                <select id="filterEngine">
-                  <option value="any">Any Engine</option>
-                  <option value="100-200" selected>100 - 200 CC</option>
-                  <option value="200-400">200 - 400 CC</option>
-                  <option value="400+">400+ CC</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
-            </div>
+          <!-- More Filters Collapsible Panel (Mileage, Engine CC, Fuel Type, Bike Type) -->
+          <div class="extra-filters-container" id="extraFiltersPanel">
+            <div class="filter-grid extra-filters-grid">
 
-            <div class="filter-group">
-              <label class="filter-label">
-                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 11l4.5-4.5"/></svg>
-                Fuel Type
-              </label>
-              <div class="select-wrapper">
-                <select id="filterFuel">
-                  <option value="all">All Fuel Types</option>
-                  <option value="Petrol" selected>Petrol</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <div class="filter-group">
+                <label class="filter-label">
+                  <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Mileage (km/l)
+                </label>
+                <div class="select-wrapper">
+                  <select id="filterMileage">
+                    <option value="any" selected>Any</option>
+                    <option value="35">35+ km/l</option>
+                    <option value="45">45+ km/l</option>
+                    <option value="55">55+ km/l</option>
+                  </select>
+                  <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
               </div>
-            </div>
 
-            <div class="filter-group">
-              <label class="filter-label">
-                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2.5l1.5 4M12 17.5V14l-3-4H4"/></svg>
-                Bike Type
-              </label>
-              <div class="select-wrapper">
-                <select id="filterType">
-                  <option value="all" selected>Any Type</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Commuter">Commuter</option>
-                  <option value="Cruiser">Cruiser</option>
-                  <option value="Scooter">Scooter</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <div class="filter-group">
+                <label class="filter-label">
+                  <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  Engine (CC)
+                </label>
+                <div class="select-wrapper">
+                  <select id="filterEngine">
+                    <option value="any">Any Engine</option>
+                    <option value="100-200" selected>100 - 200 CC</option>
+                    <option value="200-400">200 - 400 CC</option>
+                    <option value="400+">400+ CC</option>
+                  </select>
+                  <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
               </div>
-            </div>
 
+              <div class="filter-group">
+                <label class="filter-label">
+                  <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 11l4.5-4.5"/></svg>
+                  Fuel Type
+                </label>
+                <div class="select-wrapper">
+                  <select id="filterFuel">
+                    <option value="all">All Fuel Types</option>
+                    <option value="Petrol" selected>Petrol</option>
+                  </select>
+                  <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-label">
+                  <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2.5l1.5 4M12 17.5V14l-3-4H4"/></svg>
+                  Bike Type
+                </label>
+                <div class="select-wrapper">
+                  <select id="filterType">
+                    <option value="all" selected>Any Type</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Commuter">Commuter</option>
+                    <option value="Cruiser">Cruiser</option>
+                    <option value="Scooter">Scooter</option>
+                  </select>
+                  <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <div class="filter-actions-bar">
-            <button class="more-filters-btn" onclick="toggleExtraFilters()">
+            <button class="more-filters-btn" id="moreFiltersToggleBtn" onclick="toggleExtraFilters()">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-              More Filters
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+              <span id="moreFiltersText">More Filters</span>
+              <svg id="moreFiltersChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;transition:transform 0.3s ease;"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
 
             <div class="filter-buttons-right">
@@ -468,62 +475,28 @@
       <section class="recommended-section container">
         <div class="section-header-row">
           <h2 class="rec-title">Recommended For You</h2>
-          <a href="#" class="view-all-link" onclick="resetFilters(); return false;">View All &rarr;</a>
         </div>
 
-        <div class="bike-cards-grid" id="bikeGrid">
-          <!-- Rendered dynamically by app.js -->
+        <div class="carousel-wrapper">
+          <button class="carousel-side-btn prev-side-btn" onclick="prevPage()" aria-label="Previous page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px;"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+
+          <div class="bike-cards-grid" id="bikeGrid">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+
+          <button class="carousel-side-btn next-side-btn" onclick="nextPage()" aria-label="Next page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px;"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
 
         <!-- Carousel Pagination Dots -->
-        <div class="carousel-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </section>
-
-      <!-- Bottom Micro Feature Strip -->
-      <section class="micro-features-strip container">
-        <div class="micro-feature-card">
-          <div class="micro-icon-bg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div>
-            <h4 class="micro-title">Accurate Matches</h4>
-            <p class="micro-desc">Smart algorithm finds the best bikes for you.</p>
-          </div>
-        </div>
-
-        <div class="micro-feature-card">
-          <div class="micro-icon-bg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div>
-            <h4 class="micro-title">Real Market Insights</h4>
-            <p class="micro-desc">Live data & trends for better decisions.</p>
-          </div>
-        </div>
-
-        <div class="micro-feature-card">
-          <div class="micro-icon-bg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <div>
-            <h4 class="micro-title">Trusted & Verified</h4>
-            <p class="micro-desc">Quality checked bikes from trusted sellers.</p>
-          </div>
-        </div>
-
-        <div class="micro-feature-card">
-          <div class="micro-icon-bg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <h4 class="micro-title">Save Time & Effort</h4>
-            <p class="micro-desc">Find the right bike in just a few clicks.</p>
-          </div>
+        <div class="carousel-dots" id="carouselDots">
+          <span class="dot active" onclick="goToPage(0)"></span>
+          <span class="dot" onclick="goToPage(1)"></span>
+          <span class="dot" onclick="goToPage(2)"></span>
+          <span class="dot" onclick="goToPage(3)"></span>
         </div>
       </section>
     </section>

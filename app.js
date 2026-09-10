@@ -55,7 +55,7 @@ const BRAND_MODELS = {
   ]
 };
 
-// PRE-OWNED BIKES FOR CATALOG
+// PRE-OWNED BIKES FOR CATALOG (16 curated options across 4 pages)
 const BIKES_INVENTORY = [
   {
     id: "b1",
@@ -95,14 +95,14 @@ const BIKES_INVENTORY = [
     badge: "Popular",
     badgeType: "badge-purple",
     tags: [
-      { text: "Good Condition", class: "tag-good" },
+      { text: "Top Choice", class: "tag-good" },
       { text: "Popular", class: "tag-popular" }
     ],
     image: "assets/tvs_apache.png",
     mileage: 48,
     engine: 160,
     type: "Sports",
-    owner: "Second Owner",
+    owner: "First Owner",
     location: "Adyar, Chennai",
     seller: "Karthik V (Verified Dealer)",
     phone: "+91 98123 45678"
@@ -227,7 +227,7 @@ const BIKES_INVENTORY = [
     mileage: 35,
     engine: 199,
     type: "Sports",
-    owner: "Second Owner",
+    owner: "First Owner",
     location: "Bandra, Mumbai",
     seller: "Rohan D'souza",
     phone: "+91 98200 11223"
@@ -242,22 +242,245 @@ const BIKES_INVENTORY = [
     kmVal: 15000,
     fuel: "Petrol",
     price: 58000,
-    badge: "Good Condition",
+    badge: "Top Value",
     badgeType: "badge-purple",
     tags: [
-      { text: "Good Condition", class: "tag-good" },
+      { text: "Top Value", class: "tag-good" },
       { text: "Great Mileage", class: "tag-mileage" }
     ],
     image: "assets/yamaha_mt15.png",
     mileage: 55,
     engine: 125,
     type: "Commuter",
-    owner: "Second Owner",
+    owner: "First Owner",
     location: "HSR Layout, Bangalore",
     seller: "Praveen Rao",
     phone: "+91 97400 33445"
+  },
+  {
+    id: "b9",
+    title: "Yamaha R15 V4",
+    brand: "Yamaha",
+    model: "R15 V4",
+    year: 2023,
+    km: "6,500 km",
+    kmVal: 6500,
+    fuel: "Petrol",
+    price: 148000,
+    badge: "Sports Edition",
+    badgeType: "badge-blue",
+    tags: [
+      { text: "High Performance", class: "tag-excellent" },
+      { text: "Top Choice", class: "tag-good" }
+    ],
+    image: "assets/yamaha_mt15.png",
+    mileage: 45,
+    engine: 155,
+    type: "Sports",
+    owner: "First Owner",
+    location: "Whitefield, Bangalore",
+    seller: "Arjun Reddy",
+    phone: "+91 98112 33445"
+  },
+  {
+    id: "b10",
+    title: "TVS Raider 125",
+    brand: "TVS",
+    model: "Raider 125",
+    year: 2023,
+    km: "7,200 km",
+    kmVal: 7200,
+    fuel: "Petrol",
+    price: 79000,
+    badge: "Best Commuter",
+    badgeType: "badge-green",
+    tags: [
+      { text: "Great Mileage", class: "tag-mileage" },
+      { text: "Popular", class: "tag-popular" }
+    ],
+    image: "assets/tvs_apache.png",
+    mileage: 56,
+    engine: 124,
+    type: "Commuter",
+    owner: "First Owner",
+    location: "Velachery, Chennai",
+    seller: "Nikhil Menon",
+    phone: "+91 97334 55667"
+  },
+  {
+    id: "b11",
+    title: "Royal Enfield Meteor 350",
+    brand: "Royal Enfield",
+    model: "Meteor 350",
+    year: 2022,
+    km: "10,400 km",
+    kmVal: 10400,
+    fuel: "Petrol",
+    price: 145000,
+    badge: "Cruiser Choice",
+    badgeType: "badge-purple",
+    tags: [
+      { text: "High Comfort", class: "tag-excellent" },
+      { text: "Verified", class: "tag-good" }
+    ],
+    image: "assets/royal_enfield_classic.png",
+    mileage: 35,
+    engine: 349,
+    type: "Cruiser",
+    owner: "First Owner",
+    location: "Banjara Hills, Hyderabad",
+    seller: "Siddharth Verma",
+    phone: "+91 99554 43322"
+  },
+  {
+    id: "b12",
+    title: "Hero Xpulse 200 4V",
+    brand: "Hero",
+    model: "Xpulse 200 4V",
+    year: 2022,
+    km: "11,800 km",
+    kmVal: 11800,
+    fuel: "Petrol",
+    price: 98000,
+    badge: "Adventure Ready",
+    badgeType: "badge-blue",
+    tags: [
+      { text: "All-Terrain", class: "tag-demand" },
+      { text: "Top Value", class: "tag-good" }
+    ],
+    image: "assets/honda_hornet.png",
+    mileage: 40,
+    engine: 199,
+    type: "Adventure",
+    owner: "First Owner",
+    location: "Salt Lake, Kolkata",
+    seller: "Anish Roy",
+    phone: "+91 98301 22334"
+  },
+  {
+    id: "b13",
+    title: "Bajaj Pulsar NS200",
+    brand: "Bajaj",
+    model: "Pulsar NS200",
+    year: 2022,
+    km: "13,500 km",
+    kmVal: 13500,
+    fuel: "Petrol",
+    price: 94000,
+    badge: "High Power",
+    badgeType: "badge-purple",
+    tags: [
+      { text: "High Demand", class: "tag-demand" },
+      { text: "Top Choice", class: "tag-good" }
+    ],
+    image: "assets/tvs_apache.png",
+    mileage: 36,
+    engine: 199,
+    type: "Sports",
+    owner: "First Owner",
+    location: "Kothrud, Pune",
+    seller: "Sameer Joshi",
+    phone: "+91 98900 11223"
+  },
+  {
+    id: "b14",
+    title: "Suzuki Gixxer SF",
+    brand: "Suzuki",
+    model: "Gixxer SF",
+    year: 2023,
+    km: "4,800 km",
+    kmVal: 4800,
+    fuel: "Petrol",
+    price: 108000,
+    badge: "Aerodynamic",
+    badgeType: "badge-green",
+    tags: [
+      { text: "Like New", class: "tag-excellent" },
+      { text: "Great Mileage", class: "tag-mileage" }
+    ],
+    image: "assets/yamaha_mt15.png",
+    mileage: 45,
+    engine: 155,
+    type: "Sports",
+    owner: "First Owner",
+    location: "Jayanagar, Bangalore",
+    seller: "Gautam Rao",
+    phone: "+91 97411 88990"
+  },
+  {
+    id: "b15",
+    title: "Honda Activa 6G",
+    brand: "Honda",
+    model: "Activa 6G",
+    year: 2023,
+    km: "5,000 km",
+    kmVal: 5000,
+    fuel: "Petrol",
+    price: 62000,
+    badge: "City Ride",
+    badgeType: "badge-purple",
+    tags: [
+      { text: "Top Seller", class: "tag-good" },
+      { text: "Low Maintenance", class: "tag-maintenance" }
+    ],
+    image: "assets/honda_hornet.png",
+    mileage: 50,
+    engine: 110,
+    type: "Scooter",
+    owner: "First Owner",
+    location: "Ahmedabad Central, Gujarat",
+    seller: "Manish Shah",
+    phone: "+91 98250 44332"
+  },
+  {
+    id: "b16",
+    title: "KTM RC 390",
+    brand: "KTM",
+    model: "RC 390",
+    year: 2022,
+    km: "9,000 km",
+    kmVal: 9000,
+    fuel: "Petrol",
+    price: 210000,
+    badge: "Track Edition",
+    badgeType: "badge-blue",
+    tags: [
+      { text: "High Performance", class: "tag-excellent" },
+      { text: "High Demand", class: "tag-demand" }
+    ],
+    image: "assets/bike_hero_hunter.png",
+    mileage: 28,
+    engine: 373,
+    type: "Sports",
+    owner: "First Owner",
+    location: "Cyber City, Gurgaon",
+    seller: "Rishabh Malhotra",
+    phone: "+91 98109 87654"
   }
 ];
+
+const BIKE_POWER = {
+  "Yamaha MT-15 V2": "18.4 PS",
+  "TVS Apache RTR 160": "16.0 PS",
+  "Honda Hornet 2.0": "17.3 PS",
+  "Royal Enfield Classic 350": "20.2 PS",
+  "Royal Enfield Hunter 350": "20.2 PS",
+  "Hero Splendor+": "7.9 PS",
+  "KTM Duke 200": "25 PS",
+  "Honda CB Shine": "10.7 PS",
+  "Yamaha R15 V4": "18.4 PS",
+  "TVS Raider 125": "11.4 PS",
+  "Royal Enfield Meteor 350": "20.2 PS",
+  "Hero Xpulse 200 4V": "19.1 PS",
+  "Bajaj Pulsar NS200": "24.5 PS",
+  "Suzuki Gixxer SF": "13.6 PS",
+  "Honda Activa 6G": "7.8 PS",
+  "KTM RC 390": "43.5 PS"
+};
+
+function getBikePower(bike) {
+  return BIKE_POWER[bike.title] || 'Power N/A';
+}
 
 // --- NAVIGATION & ROUTER ---
 function navigateTo(viewId) {
@@ -416,7 +639,18 @@ function formatAndDisplayPrice(elementId, targetValue) {
 }
 
 // --- FIND BIKES CATALOG & FILTER ENGINE ---
-function renderBikeCards(bikes) {
+let currentFilteredInventory = [...BIKES_INVENTORY];
+let currentCatalogPage = 0;
+const CATALOG_PAGE_SIZE = 4;
+
+function renderBikeCards(bikes = currentFilteredInventory, pageIndex = 0) {
+  if (Array.isArray(bikes)) {
+    currentFilteredInventory = bikes;
+  } else {
+    bikes = currentFilteredInventory;
+  }
+  currentCatalogPage = pageIndex;
+
   const grid = document.getElementById('bikeGrid');
   if (!grid) return;
 
@@ -430,18 +664,23 @@ function renderBikeCards(bikes) {
         <button class="btn btn-outline btn-shadow" style="margin-top:16px;" onclick="resetFilters()">Reset All Filters</button>
       </div>
     `;
+    updateDotsUI(0, 0);
     return;
   }
 
-  bikes.forEach(bike => {
+  const totalPages = Math.ceil(bikes.length / CATALOG_PAGE_SIZE);
+  if (currentCatalogPage >= totalPages) currentCatalogPage = 0;
+
+  const start = currentCatalogPage * CATALOG_PAGE_SIZE;
+  const pageBikes = bikes.slice(start, start + CATALOG_PAGE_SIZE);
+
+  pageBikes.forEach((bike, idx) => {
     const card = document.createElement('div');
-    card.className = 'bike-card';
+    card.className = 'bike-card card-fade-anim';
+    card.style.animationDelay = `${idx * 0.05}s`;
     card.innerHTML = `
       <div class="card-top-bar">
         <span class="match-badge ${bike.badgeType}">${bike.badge}</span>
-        <button class="fav-btn" onclick="toggleFavorite(this)" aria-label="Add to wishlist">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
       </div>
       
       <div class="bike-card-img-wrapper">
@@ -449,7 +688,7 @@ function renderBikeCards(bikes) {
       </div>
 
       <h3 class="bike-card-name">${bike.title}</h3>
-      <p class="bike-card-meta">${bike.year} • ${bike.km} • ${bike.fuel}</p>
+      <p class="bike-card-meta">${bike.mileage} km/l • ${getBikePower(bike)} • ${bike.type} • ${bike.engine} CC</p>
       
       <div class="bike-card-price">₹ ${bike.price.toLocaleString('en-IN')}</div>
 
@@ -461,6 +700,72 @@ function renderBikeCards(bikes) {
     `;
     grid.appendChild(card);
   });
+
+  updateDotsUI(currentCatalogPage, totalPages);
+}
+
+function goToPage(pageIdx) {
+  const totalPages = Math.ceil(currentFilteredInventory.length / CATALOG_PAGE_SIZE);
+  if (totalPages === 0) return;
+
+  // No looping: Clamp strictly between page 0 (1st page) and totalPages - 1 (last page)
+  if (pageIdx < 0) pageIdx = 0;
+  if (pageIdx >= totalPages) pageIdx = totalPages - 1;
+  
+  renderBikeCards(currentFilteredInventory, pageIdx);
+}
+
+function nextPage() {
+  const totalPages = Math.ceil(currentFilteredInventory.length / CATALOG_PAGE_SIZE);
+  if (currentCatalogPage < totalPages - 1) {
+    goToPage(currentCatalogPage + 1);
+  }
+}
+
+function prevPage() {
+  if (currentCatalogPage > 0) {
+    goToPage(currentCatalogPage - 1);
+  }
+}
+
+function updateDotsUI(activeIdx, totalPages) {
+  const dotsContainer = document.getElementById('carouselDots');
+  const prevBtn = document.querySelector('.prev-side-btn');
+  const nextBtn = document.querySelector('.next-side-btn');
+
+  // Disable side arrows at start and end boundaries (no looping)
+  if (prevBtn) {
+    if (activeIdx <= 0) {
+      prevBtn.classList.add('disabled');
+      prevBtn.setAttribute('disabled', 'true');
+    } else {
+      prevBtn.classList.remove('disabled');
+      prevBtn.removeAttribute('disabled');
+    }
+  }
+
+  if (nextBtn) {
+    if (activeIdx >= totalPages - 1 || totalPages <= 1) {
+      nextBtn.classList.add('disabled');
+      nextBtn.setAttribute('disabled', 'true');
+    } else {
+      nextBtn.classList.remove('disabled');
+      nextBtn.removeAttribute('disabled');
+    }
+  }
+
+  if (!dotsContainer) return;
+
+  dotsContainer.innerHTML = '';
+  const numDots = Math.max(1, Math.min(4, totalPages || 4));
+
+  for (let i = 0; i < numDots; i++) {
+    const dot = document.createElement('span');
+    dot.className = `dot ${i === activeIdx ? 'active' : ''}`;
+    dot.setAttribute('title', `Page ${i + 1}`);
+    dot.onclick = () => goToPage(i);
+    dotsContainer.appendChild(dot);
+  }
 }
 
 function applyFilters() {
@@ -498,7 +803,7 @@ function applyFilters() {
     return true;
   });
 
-  renderBikeCards(filtered);
+  renderBikeCards(filtered, 0);
   showToast(`Found ${filtered.length} bikes matching your criteria`);
 }
 
@@ -510,7 +815,7 @@ function resetFilters() {
   document.getElementById('filterFuel').value = 'all';
   document.getElementById('filterType').value = 'all';
 
-  renderBikeCards(BIKES_INVENTORY);
+  renderBikeCards(BIKES_INVENTORY, 0);
   showToast('Filters reset to default');
 }
 
@@ -524,7 +829,23 @@ function filterByBrandName(brandName) {
 }
 
 function toggleExtraFilters() {
-  showToast('Advanced filter options expanded');
+  const panel = document.getElementById('extraFiltersPanel');
+  const chevron = document.getElementById('moreFiltersChevron');
+  const textEl = document.getElementById('moreFiltersText');
+  if (!panel) return;
+
+  const isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    panel.classList.remove('open');
+    if (chevron) chevron.style.transform = 'rotate(0deg)';
+    if (textEl) textEl.textContent = 'More Filters';
+    showToast('Filters collapsed');
+  } else {
+    panel.classList.add('open');
+    if (chevron) chevron.style.transform = 'rotate(180deg)';
+    if (textEl) textEl.textContent = 'Fewer Filters';
+    showToast('More filters expanded');
+  }
 }
 
 function toggleFavorite(btn) {
@@ -560,16 +881,16 @@ function openBikeDetailModal(bikeId) {
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
           <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
-            <div style="font-size:11px; color:var(--text-muted);">Registration Year</div>
-            <div style="font-weight:700; color:var(--text-dark);">${bike.year}</div>
-          </div>
-          <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
-            <div style="font-size:11px; color:var(--text-muted);">Kilometers Run</div>
-            <div style="font-weight:700; color:var(--text-dark);">${bike.km}</div>
-          </div>
-          <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
             <div style="font-size:11px; color:var(--text-muted);">Mileage</div>
             <div style="font-weight:700; color:var(--text-dark);">${bike.mileage} km/l</div>
+          </div>
+          <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
+            <div style="font-size:11px; color:var(--text-muted);">Power</div>
+            <div style="font-weight:700; color:var(--text-dark);">${getBikePower(bike)}</div>
+          </div>
+          <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
+            <div style="font-size:11px; color:var(--text-muted);">Bike Type</div>
+            <div style="font-weight:700; color:var(--text-dark);">${bike.type}</div>
           </div>
           <div style="background:#F1F5F9; padding:10px 14px; border-radius:10px;">
             <div style="font-size:11px; color:var(--text-muted);">Engine Capacity</div>
@@ -729,11 +1050,31 @@ function initHero3DRotation() {
   });
 }
 
+function initSwipeGesture() {
+  const grid = document.getElementById('bikeGrid');
+  if (!grid) return;
+
+  let startX = 0;
+  grid.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  grid.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) nextPage();
+      else prevPage();
+    }
+  }, { passive: true });
+}
+
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
   handleBrandChange();
-  renderBikeCards(BIKES_INVENTORY);
+  renderBikeCards(BIKES_INVENTORY, 0);
   initHero3DRotation();
+  initSwipeGesture();
 
   // Check saved login session
   const savedUser = localStorage.getItem('bikebuddy_user');

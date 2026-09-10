@@ -825,19 +825,35 @@ select:focus, input.input-field:focus {
 }
 
 /* VIEW 3: FIND BIKES FILTER & CARDS */
-.filter-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-xl);
-  padding: 24px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  margin-bottom: 36px;
-}
-
 .filter-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  gap: 16px;
+}
+
+.front-filters-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.extra-filters-container {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px dashed transparent;
+}
+
+.extra-filters-container.open {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.extra-filters-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .filter-group {
@@ -1135,22 +1151,88 @@ select.input-field, select, input.input-field {
 .carousel-dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   margin-top: 28px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: #CBD5E1;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dot:hover {
+  background-color: #94A3B8;
+  transform: scale(1.25);
 }
 
 .dot.active {
-  width: 24px;
-  border-radius: 4px;
+  width: 28px;
+  border-radius: 6px;
   background-color: var(--primary);
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+/* Carousel Wrapper & Side Navigation Arrows */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.carousel-side-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.carousel-side-btn:hover {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--primary-glow);
+}
+
+.carousel-side-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-side-btn.disabled, .carousel-side-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+  background-color: #F1F5F9;
+  border-color: #E2E8F0;
+  color: #94A3B8;
+  transform: none;
+}
+
+@keyframes cardFadeAnim {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-fade-anim {
+  animation: cardFadeAnim 0.3s ease forwards;
 }
 
 /* Micro Features Strip */
@@ -1438,8 +1520,11 @@ select.input-field, select, input.input-field {
   .prediction-card {
     grid-template-columns: 1fr;
   }
-  .filter-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .front-filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .extra-filters-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .bike-cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1465,8 +1550,11 @@ select.input-field, select, input.input-field {
   .form-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .filter-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .front-filters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .extra-filters-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .subpage-hero {
     flex-direction: column;
@@ -1480,8 +1568,18 @@ select.input-field, select, input.input-field {
   }
 }
 
+@media (max-width: 600px) {
+  .carousel-wrapper {
+    gap: 8px;
+  }
+  .carousel-side-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
 @media (max-width: 480px) {
-  .features-grid, .bike-cards-grid, .form-grid, .filter-grid, .micro-features-strip, .footer-content {
+  .features-grid, .bike-cards-grid, .form-grid, .front-filters-grid, .extra-filters-grid, .micro-features-strip, .footer-content {
     grid-template-columns: 1fr;
   }
   .circle-badge-bg {
